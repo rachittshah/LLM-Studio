@@ -1,0 +1,43 @@
+# Example configuration for LLM Eval Studio
+
+# Model configuration
+model:
+  name: "gpt-3.5-turbo"
+  api_key: "${OPENAI_API_KEY}"  # Will be loaded from environment
+  kwargs:
+    temperature: 0.0
+    max_tokens: 1000
+
+# Metrics configuration
+metrics:
+  - type: "correctness"
+    judge_model: "gpt-4"
+    api_key: "${OPENAI_API_KEY}"
+    prompt_template: |
+      You are an expert evaluator assessing the factual correctness of an AI model's response.
+      
+      Context:
+      - Input/Question: {input_text}
+      - Model's Answer: {output_text}
+      - Reference Answer (if provided): {reference_text}
+      
+      Please evaluate the factual correctness of the model's answer and provide a score from 0.0 to 1.0.
+      
+      SCORE: <your score>
+      EXPLANATION: <your reasoning>
+
+# Evaluation configuration
+evaluation:
+  batch_size: 32
+  max_concurrent_requests: 10
+  timeout_seconds: 30.0
+  metadata:
+    description: "Example evaluation configuration"
+    version: "0.1.0"
+
+# Server configuration (when running API)
+server:
+  host: "127.0.0.1"
+  port: 8000
+  cors_origins: ["*"]
+  api_keys: ["test-key"]  # Replace with secure keys in production 

@@ -1,0 +1,19 @@
+{
+    "inputs": [
+        "What is the capital of France?",
+        "What is the speed of light in meters per second?",
+        "Who wrote 'Romeo and Juliet'?",
+        "What is the chemical formula for water?"
+    ],
+    "references": [
+        "Paris is the capital and largest city of France.",
+        "The speed of light in vacuum is exactly 299,792,458 meters per second.",
+        "Romeo and Juliet was written by William Shakespeare.",
+        "The chemical formula for water is H2O."
+    ],
+    "metadata": {
+        "dataset_name": "general_knowledge_test",
+        "description": "Basic factual questions for testing model accuracy",
+        "version": "1.0.0"
+    }
+} 
